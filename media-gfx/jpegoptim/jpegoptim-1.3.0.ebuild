@@ -1,12 +1,13 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
+# $Header: $
 
 EAPI=5
 inherit toolchain-funcs
 
 DESCRIPTION="Utility to optimize JPEG files"
 HOMEPAGE="http://www.kokkonen.net/tjko/projects.html"
-SRC_URI="https://github.com/tjko/jpegoptim/archive/RELEASE.${P}.tar.gz"
+SRC_URI="http://www.kokkonen.net/tjko/src/${P}.tar.gz"
 
 LICENSE="GPL-2"
 SLOT="0"
