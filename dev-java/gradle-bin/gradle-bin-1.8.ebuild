@@ -1,3 +1,7 @@
+# Copyright 1999-2012 Gentoo Foundation
+# Distributed under the terms of the GNU General Public License v2
+# $Header: $
+
 EAPI="4"
 inherit java-pkg-2
 
@@ -29,7 +33,7 @@ src_install() {
     use examples && java-pkg_doexamples samples
     cd lib
     for jar in *.jar; do
-        java-pkg_newjar ${jar} ${jar}
+	java-pkg_newjar ${jar} ${jar}
     done
     insinto "${gradle_home}/lib/plugins"
     doins plugins/*
