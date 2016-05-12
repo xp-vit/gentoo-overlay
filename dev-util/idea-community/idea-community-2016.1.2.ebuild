@@ -12,7 +12,7 @@ MY_PN="idea"
 
 DESCRIPTION="Capable and Ergonomic Java IDE (Community Edition)"
 HOMEPAGE="https://www.jetbrains.com/idea/"
-SRC_URI="${MY_PN}IC-${MY_PV}.tar.gz"
+SRC_URI="https://download.jetbrains.com/idea/ideaIC-${MY_PV}.tar.gz"
 
 LICENSE="Apache-2.0"
 SLOT="0"
@@ -22,7 +22,6 @@ IUSE=""
 #https://intellij-support.jetbrains.com/hc/en-us/articles/206544879-Selecting-the-JDK-version-the-IDE-will-run-under
 RDEPEND=">=virtual/jdk-1.8"
 
-RESTRICT="fetch strip"
 QA_TEXTRELS="${PN}-IC-${MY_PV}/bin/libbreakgen.so
 	${PN}-IC-${MY_PV}/bin/libbreakgen64.so"
 QA_PRESTRIPPED="${PN}-IC-${MY_PV}/lib/libpty/linux/x86/libpty.so
