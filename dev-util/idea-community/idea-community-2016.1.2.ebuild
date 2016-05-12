@@ -29,7 +29,7 @@ QA_PRESTRIPPED="${PN}-IC-${MY_PV}/lib/libpty/linux/x86/libpty.so
 
 CONFIG_CHECK="~INOTIFY_USER"
 
-S="${WORKDIR}/${MY_PN}-IC-${MY_PV}"
+S="${WORKDIR}/${PN}-${PV}"
 
 src_prepare() {
 	if ! use amd64; then
@@ -45,11 +45,11 @@ src_prepare() {
 }
 
 src_install() {
-	local dir="/opt/${PN}-${MY_PV_MAJ}"
+	local dir="/opt/${PN}-${PV}"
 
 	insinto "${dir}"
 	doins -r *
-	fperms 755 "${dir}/bin/${MY_PN}.sh" "${dir}/bin/inspect.sh"
+	fperms 755 "${dir}/bin/${PN}.sh" "${dir}/bin/inspect.sh"
 
 	if use amd64; then
 		fperms 755 "${dir}/bin/fsnotifier64"
@@ -59,7 +59,7 @@ src_install() {
 	fi
 
 	newicon "bin/idea.png" "${PN}.png"
-	make_wrapper "${PN}" "${dir}/bin/${MY_PN}.sh"
+	make_wrapper "${PN}" "${dir}/bin/${PN}.sh"
 
 	#https://confluence.jetbrains.com/display/IDEADEV/Inotify+Watches+Limit
 	mkdir -p "${D}/etc/sysctl.d/"
