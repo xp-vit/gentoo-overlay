@@ -58,8 +58,8 @@ src_install() {
 		fperms 755 "${dir}/bin/fsnotifier"
 	fi
 
-	newicon "bin/idea.png" "${PN}.png"
-	make_wrapper "${PN}" "${dir}/bin/${PN}.sh"
+	newicon "bin/idea.png" "${MY_PN}.png"
+	make_wrapper "${PN}" "${dir}/bin/${MY_PN}.sh"
 
 	#https://confluence.jetbrains.com/display/IDEADEV/Inotify+Watches+Limit
 	mkdir -p "${D}/etc/sysctl.d/"
