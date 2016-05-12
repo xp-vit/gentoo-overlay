@@ -22,14 +22,14 @@ IUSE=""
 #https://intellij-support.jetbrains.com/hc/en-us/articles/206544879-Selecting-the-JDK-version-the-IDE-will-run-under
 RDEPEND=">=virtual/jdk-1.8"
 
-QA_TEXTRELS="${PN}-IC-${MY_PV}/bin/libbreakgen.so
-	${PN}-IC-${MY_PV}/bin/libbreakgen64.so"
-QA_PRESTRIPPED="${PN}-IC-${MY_PV}/lib/libpty/linux/x86/libpty.so
-	${PN}-IC-${MY_PV}/lib/libpty/linux/x86_64/libpty.so"
+QA_TEXTRELS="${PN}-${PV}/bin/libbreakgen.so
+	${PN}-${PV}/bin/libbreakgen64.so"
+QA_PRESTRIPPED="${PN}-${MY_PV}/lib/libpty/linux/x86/libpty.so
+	${PN}-${PV}/lib/libpty/linux/x86_64/libpty.so"
 
 CONFIG_CHECK="~INOTIFY_USER"
 
-S="${WORKDIR}/${PN}-${PV}"
+#S="${WORKDIR}/${PN}-${PV}"
 
 src_prepare() {
 	if ! use amd64; then
