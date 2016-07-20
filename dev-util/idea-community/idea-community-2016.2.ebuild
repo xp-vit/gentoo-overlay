@@ -29,7 +29,7 @@ QA_PRESTRIPPED="${PN}-${PV}/lib/libpty/linux/x86/libpty.so
 
 CONFIG_CHECK="~INOTIFY_USER"
 
-S="${WORKDIR}/idea-IC-145.1617.8"
+S="${WORKDIR}/idea-IC-162.1121.32"
 
 src_prepare() {
 	if ! use amd64; then
