@@ -3,19 +3,24 @@
 
 EAPI=7
 
-inherit desktop pax-utils rpm xdg-utils
+inherit desktop eutils pax-utils rpm
+
+# Binary only distribution
+QA_PREBUILT="*"
 
 DESCRIPTION="Project collaboration and tracking software for upwork.com"
 HOMEPAGE="https://www.upwork.com/"
 SRC_URI="
 	amd64? ( https://upwork-usw2-desktopapp.upwork.com/binaries/v5_6_9_3_10c2eb9781db4d7f/upwork-5.6.9.3-1fc24.x86_64.rpm -> ${P}_x86_64.rpm )
-	x86? ( https://upwork-usw2-desktopapp.upwork.com/binaries/v5_6_9_3_10c2eb9781db4d7f/upwork-5.6.9.3-1fc24.i386.rpm -> ${P}_i386.rpm )"
-
+	x86? ( https://upwork-usw2-desktopapp.upwork.com/binaries/v5_6_9_3_10c2eb9781db4d7f/upwork-5.6.9.3-1fc24.i386.rpm -> ${P}_i386.rpm )
+"
 LICENSE="ODESK"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-RESTRICT="bindist mirror"
 
+S=${WORKDIR}
+
+DEPEND=""
 RDEPEND="
 	dev-libs/expat
 	dev-libs/nspr
@@ -31,23 +36,26 @@ RDEPEND="
 	x11-libs/libXtst
 "
 
-S="${WORKDIR}"
+src_prepare() {
+	default
 
-PATCHES=( "${FILESDIR}/${PN}-desktop-r2.patch" )
-
-# Binary only distribution
-QA_PREBUILT="*"
+	# Generate an executable
+	mkdir -p usr/bin
+	cat <<-EOF > usr/bin/upwork || die
+	#!/bin/sh
+	"${EPREFIX}/opt/Upwork/upwork" \$@
+	EOF
+}
 
 src_install() {
-	pax-mark m opt/Upwork/upwork
+	pax-mark m usr/share/upwork/upwork
 
+	dobin usr/bin/upwork
+	insinto /usr
+	doins -r usr/share
 	insinto /opt
 	doins -r opt/Upwork
-	fperms 0755 /opt/Upwork/upwork
-
-	insinto /usr/share
-	doins -r usr/share/icons
-
+	fperms 0755 /opt/Upwork/{app.node,cmon,upwork}
 	domenu usr/share/applications/upwork.desktop
 	doicon usr/share/icons/hicolor/128x128/apps/upwork.png
 }
