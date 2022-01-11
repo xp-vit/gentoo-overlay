@@ -9,7 +9,6 @@
       <email>xp.vit.blr@gmail.com</email>
       <name><![CDATA[Viktar Patotski]]></name>
     </owner>
-    <source type="git">git://github.com/xp-vit/gentoo-overlay.git</source>
     <source type="git">https://github.com/xp-vit/gentoo-overlay.git</source>
     <feed>https://github.com/xp-vit/gentoo-overlay/commits/master.atom</feed>
   </repo>
