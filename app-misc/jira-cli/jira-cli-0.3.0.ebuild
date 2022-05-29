@@ -27,6 +27,9 @@ src_compile() {
 src_install() {
 	dobin jira
 	dodoc README.md
+
+	insinto /usr/share/zsh/site-functions
+	newins $(jira completion zsh) _jira
 	# This can be uncommented once we can generate completion scripts
 #	newbashcomp jira.bash jira
 #	insinto /usr/share/zsh/site-functions
