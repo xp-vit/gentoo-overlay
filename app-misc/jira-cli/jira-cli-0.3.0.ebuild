@@ -21,11 +21,12 @@ src_compile() {
 	ego build ./cmd/jira
 	./jira completion zsh > jira.zsh || die
 	./jira completion bash > jira.bash || die
+	./jira man --generate --output docs || die
 }
 
 src_install() {
 	dobin jira
-	dodoc README.md
+	dodoc docs
 
 	newbashcomp jira.bash jira
 	insinto /usr/share/zsh/site-functions
