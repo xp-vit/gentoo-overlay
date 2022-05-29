@@ -26,7 +26,7 @@ src_compile() {
 
 src_install() {
 	dobin jira
-	dodoc docs
+	dodoc -r docs
 
 	newbashcomp jira.bash jira
 	insinto /usr/share/zsh/site-functions
