@@ -5,7 +5,7 @@ EAPI=8
 
 inherit bash-completion-r1 go-module
 
-DESCRIPTION=" Feature-rich Interactive Jira Command Line"
+DESCRIPTION="Feature-rich Interactive Jira Command Line"
 HOMEPAGE="https://github.com/ankitpokhrel/jira-cli"
 
 SRC_URI="https://github.com/ankitpokhrel/jira-cli/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"
