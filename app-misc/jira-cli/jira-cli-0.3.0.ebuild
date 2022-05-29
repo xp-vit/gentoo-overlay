@@ -9,7 +9,7 @@ inherit go-module
 DESCRIPTION="A simple JIRA commandline client in Go"
 HOMEPAGE="https://github.com/ankitpokhrel/jira-cli"
 SRC_URI="https://github.com/ankitpokhrel/jira-cli/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"
-SRC_URI+=" https://nc.patotski.com//dist/${P}-deps.tar.xz"
+SRC_URI+=" https://nc.patotski.com/${P}-deps.tar.xz"
 
 LICENSE="Apache-2.0 BSD-2 BSD ISC MIT MIT-with-advertising"
 SLOT="0"
