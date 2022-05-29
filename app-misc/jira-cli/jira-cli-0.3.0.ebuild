@@ -1,38 +1,31 @@
 # Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
+inherit bash-completion-r1 go-module
 
-# bash-completion-r1 can be added once we can generate completion scripts
-inherit go-module
-
-DESCRIPTION="A simple JIRA commandline client in Go"
+DESCRIPTION=" Feature-rich Interactive Jira Command Line"
 HOMEPAGE="https://github.com/ankitpokhrel/jira-cli"
 SRC_URI="https://github.com/ankitpokhrel/jira-cli/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"
 SRC_URI+=" https://github.com/xp-vit/gentoo-overlay/raw/master/app-misc/jira-cli/files/${P}-deps.tar.xz"
 
-LICENSE="Apache-2.0 BSD-2 BSD ISC MIT MIT-with-advertising"
+LICENSE="MIT"
 SLOT="0"
-KEYWORDS="amd64"
+KEYWORDS="~amd64"
 
 S="${WORKDIR}/jira-cli-${PV}"
 
 src_compile() {
 	ego build ./cmd/jira
-	# these cause failures.
-#	./jira --completion-script-bash > jira.bash || die
-#	./jira --completion-script-zsh > jira.zsh || die
+	./jira completion zsh > jira.zsh || die
+	./jira completion bash > jira.bash || die
 }
 
 src_install() {
 	dobin jira
 	dodoc README.md
 
+	newbashcomp jira.bash jira
 	insinto /usr/share/zsh/site-functions
-	jira completion zsh > _jira.zsh
-	newins _jira.zsh _jira
-	# This can be uncommented once we can generate completion scripts
-#	newbashcomp jira.bash jira
-#	insinto /usr/share/zsh/site-functions
-#	newins jira.zsh _jira
+	newins jira.zsh _jira
 }
