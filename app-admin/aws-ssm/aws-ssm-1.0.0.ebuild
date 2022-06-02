@@ -18,3 +18,7 @@ KEYWORDS="amd64"
 RDEPEND="app-admin/awscli"
 
 S="${WORKDIR}"
+
+src_install {
+ ll
+}
