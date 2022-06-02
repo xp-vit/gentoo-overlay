@@ -17,6 +17,8 @@ KEYWORDS="amd64"
 
 RDEPEND="app-admin/awscli"
 
+QA_PREBUILT="opt/ssm/*"
+
 S="${WORKDIR}"
 
 src_install() {
