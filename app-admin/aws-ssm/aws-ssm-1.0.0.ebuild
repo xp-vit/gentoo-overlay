@@ -3,7 +3,7 @@
 # $Header: $
 
 EAPI="8"
-inherit rpm
+inherit rpm systemd
 
 DESCRIPTION="AWS ession Manager plugin on Linux"
 HOMEPAGE="https://docs.aws.amazon.com/systems-manager/latest/userguide/session-manager-working-with-install-plugin.html#install-plugin-linux"
