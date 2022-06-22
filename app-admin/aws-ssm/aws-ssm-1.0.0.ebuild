@@ -18,3 +18,10 @@ KEYWORDS="amd64"
 RDEPEND="app-admin/awscli"
 
 S="${WORKDIR}"
+
+src_install {
+  exeinto /opt/${PN}/bin
+  doexe usr/local/sessionmanagerplugin/bin/*
+
+
+}
