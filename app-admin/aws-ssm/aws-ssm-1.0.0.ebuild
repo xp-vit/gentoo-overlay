@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI="8"
+EAPI="7"
 inherit rpm systemd
 
 DESCRIPTION="AWS ession Manager plugin on Linux"
