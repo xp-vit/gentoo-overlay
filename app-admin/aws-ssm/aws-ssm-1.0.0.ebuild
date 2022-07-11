@@ -22,6 +22,4 @@ S="${WORKDIR}"
 src_install {
   exeinto /opt/${PN}/bin
   doexe usr/local/sessionmanagerplugin/bin/*
-
-
 }
