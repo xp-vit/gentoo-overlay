@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 EAPI=7
 
-inherit desktop eutils pax-utils rpm
+inherit desktop eutils pax-utils rpm xdg-utils
 
 # Binary only distribution
 QA_PREBUILT="*"
